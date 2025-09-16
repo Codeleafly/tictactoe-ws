@@ -1,0 +1,426 @@
+/* css/style.css */
+
+/* Custom Neon Colors (Dark Theme) */
+:root {
+    --neon-purple: #a855f7;
+    --neon-purple-rgb: 168, 85, 247;
+    --neon-green: #22c55e;
+    --neon-green-rgb: 34, 197, 94;
+    --neon-blue: #3b82f6;
+    --neon-blue-rgb: 59, 130, 246;
+    --neon-yellow: #eab308;
+    --neon-yellow-rgb: 234, 179, 8;
+    --neon-red: #ef4444;
+    --neon-red-rgb: 239, 68, 68;
+
+    --bg-dark: #0a0a0a;
+    --bg-medium: #1a1a1a;
+    --bg-light: #2a2a2a;
+    --text-light: #e0e0e0;
+    --text-medium: #a0a0a0;
+
+    /* Light Theme Variables (Defaults) */
+    --light-bg-primary: #f0f0f0;
+    --light-bg-secondary: #ffffff;
+    --light-text-primary: #333333;
+    --light-text-secondary: #666666;
+    --light-border: #cccccc;
+    --light-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles (Light Theme Defaults) */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--light-bg-primary);
+    color: var(--light-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.neon-grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+    z-index: 0;
+    animation: neonGridPulse 10s infinite alternate;
+}
+
+/* Dark Theme Overrides */
+html.dark body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+html.dark .neon-grid-background {
+    background-image: 
+        linear-gradient(to right, rgba(var(--neon-purple-rgb), 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(var(--neon-purple-rgb), 0.1) 1px, transparent 1px);
+    opacity: 0.2;
+}
+
+/* Drop Shadow Neon Effect */
+.drop-shadow-neon {
+    text-shadow: 
+        0 0 5px var(--neon-purple),
+        0 0 10px var(--neon-purple),
+        0 0 20px var(--neon-purple),
+        0 0 40px rgba(var(--neon-purple-rgb), 0.5);
+}
+
+.drop-shadow-neon-sm {
+    text-shadow: 
+        0 0 3px var(--neon-yellow),
+        0 0 6px var(--neon-yellow),
+        0 0 12px rgba(var(--neon-yellow-rgb), 0.5);
+}
+
+/* Shadow Neon Effect for Containers */
+.shadow-neon-lg {
+    box-shadow: 
+        0 0 15px rgba(var(--neon-purple-rgb), 0.4),
+        0 0 30px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+.shadow-inner-neon {
+    box-shadow: inset 
+        0 0 8px rgba(var(--neon-green-rgb), 0.3),
+        0 0 15px rgba(var(--neon-blue-rgb), 0.2);
+}
+
+/* Neon Button Shadow */
+.shadow-neon-btn {
+    box-shadow: 
+        0 0 5px rgba(var(--neon-purple-rgb), 0.5),
+        0 0 10px rgba(var(--neon-purple-rgb), 0.3),
+        0 0 20px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+.shadow-neon-btn-sm {
+    box-shadow: 
+        0 0 3px rgba(var(--neon-purple-rgb), 0.4),
+        0 0 6px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+    background-color: var(--light-bg-secondary);
+    color: var(--light-text-primary);
+    border: 1px solid var(--light-border);
+}
+
+html.dark #darkModeToggle {
+    background-color: var(--bg-medium);
+    color: var(--neon-purple);
+    border-color: var(--neon-purple);
+}
+
+#darkModeToggle:hover {
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Game Container */
+.game-container {
+    background-color: var(--light-bg-secondary);
+    border: 1px solid var(--light-border);
+    box-shadow: 0 4px 10px var(--light-shadow);
+}
+
+html.dark .game-container {
+    background-color: var(--bg-medium);
+    border-color: var(--neon-purple);
+    box-shadow: 
+        0 0 15px rgba(var(--neon-purple-rgb), 0.4),
+        0 0 30px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+/* Scoreboard */
+.scoreboard .player-score {
+    background-color: var(--light-bg-primary);
+    border: 1px solid var(--light-border);
+    color: var(--light-text-primary);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+html.dark .scoreboard .player-score {
+    background-color: var(--bg-dark);
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: inset 
+        0 0 8px rgba(var(--neon-green-rgb), 0.3),
+        0 0 15px rgba(var(--neon-blue-rgb), 0.2);
+}
+
+.scoreboard .player-score i {
+    color: var(--neon-green);
+}
+
+html.dark .scoreboard .player-score i {
+    color: var(--neon-green);
+}
+
+.scoreboard .player-score:nth-child(2) {
+    border-color: var(--neon-blue);
+}
+
+html.dark .scoreboard .player-score:nth-child(2) i {
+    color: var(--neon-blue);
+}
+
+/* Game Board */
+#gameBoard {
+    background-color: var(--light-bg-primary);
+    border: 2px solid var(--light-border);
+}
+
+html.dark #gameBoard {
+    background-color: var(--bg-dark);
+    border-color: var(--neon-purple);
+}
+
+.cell {
+    background-color: var(--light-bg-secondary);
+    border: 2px solid var(--light-border);
+    color: var(--light-text-primary);
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease;
+}
+
+html.dark .cell {
+    background-color: var(--bg-medium);
+    border: 2px solid var(--bg-light);
+    color: var(--text-light);
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 8px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+html.dark .cell:hover {
+    background-color: var(--bg-light);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 8px rgba(var(--neon-purple-rgb), 0.5);
+}
+
+.cell.x {
+    color: var(--neon-red);
+}
+
+.cell.o {
+    color: var(--neon-blue);
+}
+
+/* Winning Cell Blink */
+.cell.winning-cell-blink {
+    animation: neonBlinkGreen 0.8s infinite alternate;
+}
+
+@keyframes neonBlinkGreen {
+    0% { background-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); }
+    100% { background-color: var(--bg-medium); box-shadow: none; }
+}
+
+/* Game Status */
+#gameStatus {
+    color: var(--light-text-primary);
+}
+
+html.dark #gameStatus {
+    color: var(--neon-yellow);
+}
+
+/* Buttons */
+.neon-btn {
+    background-color: var(--neon-purple);
+    border: none;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+    background-color: var(--neon-purple);
+    box-shadow: 
+        0 0 10px rgba(var(--neon-purple-rgb), 0.7),
+        0 0 20px rgba(var(--neon-purple-rgb), 0.5),
+        0 0 40px rgba(var(--neon-purple-rgb), 0.3);
+    transform: translateY(-2px);
+}
+
+.neon-btn i {
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.8));
+}
+
+/* Specific button colors */
+#resetBtn {
+    background-color: var(--neon-red);
+}
+#resetBtn:hover {
+    box-shadow: 
+        0 0 10px rgba(var(--neon-red-rgb), 0.7),
+        0 0 20px rgba(var(--neon-red-rgb), 0.5);
+}
+
+#newGameBtn {
+    background-color: var(--neon-green);
+}
+#newGameBtn:hover {
+    box-shadow: 
+        0 0 10px rgba(var(--neon-green-rgb), 0.7),
+        0 0 20px rgba(var(--neon-green-rgb), 0.5);
+}
+
+#settingsBtn {
+    background-color: var(--neon-blue);
+}
+#settingsBtn:hover {
+    box-shadow: 
+        0 0 10px rgba(var(--neon-blue-rgb), 0.7),
+        0 0 20px rgba(var(--neon-blue-rgb), 0.5);
+}
+
+/* Modal Overrides */
+.modal-content {
+    background-color: var(--light-bg-secondary);
+    color: var(--light-text-primary);
+    border: 1px solid var(--light-border);
+    box-shadow: 0 4px 10px var(--light-shadow);
+}
+
+html.dark .modal-content {
+    background-color: var(--bg-medium);
+    color: var(--text-light);
+    border-color: var(--neon-purple);
+    box-shadow: 
+        0 0 15px rgba(var(--neon-purple-rgb), 0.4),
+        0 0 30px rgba(var(--neon-purple-rgb), 0.2);
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--light-border);
+}
+
+html.dark .modal-header, html.dark .modal-footer {
+    border-color: var(--neon-purple);
+}
+
+.modal-title {
+    color: var(--light-text-primary);
+    font-family: 'Press Start 2P', cursive;
+}
+
+html.dark .modal-title {
+    color: var(--neon-purple);
+}
+
+.modal-body label {
+    color: var(--light-text-primary);
+}
+
+html.dark .modal-body label {
+    color: var(--neon-purple);
+}
+
+.modal-body .form-select, .modal-body .form-control {
+    background-color: var(--light-bg-primary);
+    color: var(--light-text-primary);
+    border-color: var(--light-border);
+}
+
+html.dark .modal-body .form-select, html.dark .modal-body .form-control {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border-color: var(--neon-purple);
+}
+
+.modal-body .form-select:focus, .modal-body .form-control:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 0 0.25rem rgba(var(--neon-blue-rgb), 0.25);
+}
+
+.modal-body .form-check-input {
+    background-color: var(--light-bg-primary);
+    border-color: var(--light-border);
+}
+
+html.dark .modal-body .form-check-input {
+    background-color: var(--bg-dark);
+    border-color: var(--neon-purple);
+}
+
+.modal-body .form-check-input:checked {
+    background-color: var(--neon-green);
+    border-color: var(--neon-green);
+}
+
+.modal-body .form-check-label {
+    color: var(--light-text-primary);
+}
+
+html.dark .modal-body .form-check-label {
+    color: var(--neon-green);
+}
+
+.btn-close {
+    color: var(--light-text-primary);
+    opacity: 0.7;
+    filter: none; /* Reset Bootstrap's default filter */
+}
+
+html.dark .btn-close {
+    color: var(--text-light);
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    .game-container {
+        padding: 1.5rem;
+    }
+    .cell {
+        font-size: 3rem;
+    }
+    .scoreboard {
+        font-size: 1.2rem;
+    }
+    .scoreboard div {
+        padding: 0.75rem 1rem;
+    }
+    .game-controls button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .game-container {
+        padding: 1rem;
+    }
+    .cell {
+        font-size: 2.5rem;
+    }
+    .game-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .game-controls button {
+        width: 100%;
+    }
+}
