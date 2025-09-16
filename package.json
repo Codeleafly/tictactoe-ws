@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Smart Tell Line",
   "private": true,
   "type": "commonjs",
   "dependencies": {
